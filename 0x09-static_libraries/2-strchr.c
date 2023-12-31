@@ -1,8 +1,12 @@
 #include "main.h"
+
 /**
- * _strchr - Entry point
- * @s: input
- * @c: input
+ * _strchr - Entry point code
+ *
+ * @s: input no
+ *
+ * @c: input no
+ *
  * Return: Always 0 (Success)
  */
 char *_strchr(char *s, char c)

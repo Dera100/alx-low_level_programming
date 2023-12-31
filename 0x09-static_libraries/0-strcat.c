@@ -1,8 +1,10 @@
 #include "main.h"
 /**
- * *_strcat - concatenates two strings
- * @dest: pointer destination
- * @src: pointer source
+ * *_strcat - concatenates two strings area
+ *
+ * @dest: pointer destination area
+ *
+ * @src: pointer source code
  * Return: void
 */
 
@@ -20,3 +22,4 @@ do {
 
 return (dest);
 }
+

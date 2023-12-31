@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * _isdigit - check if the input is digit or not
+ * _isdigit - check if the input is digit or not is imp
  *
- * @c: checks input of function
  *
- * Return: 1 if 'c' is digit
+ * @c: checks input of function area
+ *
+ * Return: 1 if 'c' is digit ifnt
  * else return 0
  */
 int _isdigit(int c)

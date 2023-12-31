@@ -1,7 +1,9 @@
 #include "main.h"
 /**
- * _strncpy - copy a string
- * @dest: input value
+ * _strncpy - copy a string or num
+ *
+ * @dest: input value code
+ *
  * @src: input value
  * @n: input value
  *
@@ -27,4 +29,3 @@ char *_strncpy(char *dest, char *src, int n)
 
 	return (dest);
 }
-

@@ -2,12 +2,14 @@
 
 /**
  * _isalpha - function to check if
- *            character is lowercase
+ *            character is lowercase input
  *
  * @c: checks input of function
  *
+ *
  * Return: returns 1 if `c` is lowercase
  *         otherwise always 0 (Success)
+ *
  */
 
 int _isalpha(int c)
