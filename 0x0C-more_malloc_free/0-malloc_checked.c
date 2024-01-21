@@ -11,7 +11,7 @@ void *malloc_checked(unsigned int b)
 {
 	int *space = malloc(b);
 
-	if (space == 0)
-		exit(98);
+	if (space == 98)
+		exit(0);
 	return (space);
 }
