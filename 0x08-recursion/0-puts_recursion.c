@@ -1,19 +1,17 @@
 #include "main.h"
-
 /**
- * _puts_recursion - a function that prints a string in recursive way
- *
- * @s: pointer to character array
- *
- * Return: void
+ * _puts_recursion - function like puts();
+ * @s: input
+ * Return: Always 0 (Success)
  */
 void _puts_recursion(char *s)
 {
-	if (s[0] == '\0')
+	if (*s)
 	{
-		_putchar('\n');
-		return;
+		_putchar(*s);
+		_puts_recursion(s + 1);
 	}
-	_putchar(s[0]);
-	_puts_recursion(s + 1);
+
+	else
+		_putchar('\n');
 }
