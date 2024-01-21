@@ -1,41 +1,19 @@
-#include <stdio.h>
-		
 #include <stdlib.h>
-		
 #include "main.h"
-		
 /**
-		
- * free_grid - frees 2d array area
-		
- * @grid: 2d grid area
-		
- * @height: height dimension of grid
-		
- * Description: frees memory of grid
-		
- * Return: nothing
-		
+ * free_grid - free space assign by malloc area
+ * @grid: the array code
  *
-		
+ * @height: the row and weight
+ * Return: void
  */
-		
 void free_grid(int **grid, int height)
-		
 {
-		
-	int i;
-		
+	int a = 0;
 
-		
-	for (i = 0; i < height; i++)
-		
+	for ( ; a < height; a++)
 	{
-		
-		free(grid[i]);
-		
+		free(grid[a]);
 	}
-		
 	free(grid);
-		
 }
