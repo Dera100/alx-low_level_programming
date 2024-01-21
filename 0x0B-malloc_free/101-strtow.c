@@ -1,49 +1,71 @@
 #include <stdlib.h>
 #include "main.h"
-int _strlen(char *s);
 /**
- * argstostr - allocate string for what area
+ * count_word - helper function to count the numb
+ * @s: the string s
  *
- * @ac: the number of command line argyument
- *
- * @av: the string in the command line
- * Return: the string area
+ * Return: number of words
  */
-char *argstostr(int ac, char **av)
+int count_word(char *s)
 {
-	int i = 0, nc = 0, j = 0, cmpt = 0;
-	char *s;
+	int flag, c, w;
 
-	if (ac == 0 || av == NULL)
-		return (NULL);
-	for (; i < ac; i++, nc++)
-		nc += _strlen(av[i]);
-	s = malloc(sizeof(char) * nc + 1);
-	if (s == 0)
-		return (NULL);
-	for (i = 0; i < ac; i++)
+	flag = 0;
+	w = 0;
+
+	for (c = 0; s[c] != '\0'; c++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++, cmpt++)
-			s[cmpt] = av[i][j];
-		s[cmpt] = '\n';
-		cmpt++;
+		if (s[c] == ' ')
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			w++;
+		}
 	}
-	s[cmpt] = '\0';
-	return (s);
+	return (w);
 }
 /**
- * _strlen - to determine the length of a string
+ * **strtow - splits a string into words area
  *
- * @s: the string code
+ * @str: string to split area
  *
- *
- * Return: the int size for the code
+ * Return: pointer to an array of strings (Success)
  */
-int _strlen(char *s)
+char **strtow(char *str)
 {
-	int size = 0;
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
 
-	for (; s[size] != '\0'; size++)
-		;
-	return (size);
+	while (*(str + len))
+		len++;
+	words = count_word(str);
+	if (words == 0)
+		return (NULL);
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
+		return (NULL);
+	for (i = 0; i <= len; i++)
+	{
+		if (str[i] == ' ' || str[i] == '\0')
+		{
+			if (c)
+			{
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
+			}
+		}
+		else if (c++ == 0)
+			start = i;
+	}
+	matrix[k] = NULL;
+	return (matrix);
 }
