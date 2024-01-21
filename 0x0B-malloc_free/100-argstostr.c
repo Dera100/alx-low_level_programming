@@ -1,79 +1,48 @@
-#include "main.h"
-		
 #include <stdlib.h>
-		
+#include "main.h"
+int _strlen(char *s);
 /**
-		
- * argstostr - main entry area
-		
- * @ac: int input
-		
- * @av: double pointer array
-		
- * Return: 0
-		
+ * argstostr - allocate string for the code
+ *
+ * @ac: the number of command line argyument coded
+ *
+ * @av: the string in the command line
+ * Return: the string 0
  */
-		
 char *argstostr(int ac, char **av)
-		
 {
-		
-	int i, n, r = 0, l = 0;
-		
-	char *str;
-		
+	int i = 0, nc = 0, j = 0, cmpt = 0;
+	char *s;
 
-		
 	if (ac == 0 || av == NULL)
-		
 		return (NULL);
-		
-
-		
-	for (i = 0; i < ac; i++)
-		
-	{
-		
-		for (n = 0; av[i][n]; n++)
-		
-			l++;
-		
-	}
-		
-	l += ac;
-		
-
-		
-	str = malloc(sizeof(char) * l + 1);
-		
-	if (str == NULL)
-		
+	for (; i < ac; i++, nc++)
+		nc += _strlen(av[i]);
+	s = malloc(sizeof(char) * nc + 1);
+	if (s == 0)
 		return (NULL);
-		
 	for (i = 0; i < ac; i++)
-		
 	{
-		
-	for (n = 0; av[i][n]; n++)
-		
-	{
-		
-		str[r] = av[i][n];
-		
-		r++;
-		
+		for (j = 0; av[i][j] != '\0'; j++, cmpt++)
+			s[cmpt] = av[i][j];
+		s[cmpt] = '\n';
+		cmpt++;
 	}
-		
-	if (str[r] == '\0')
-		
-	{
-		
-		str[r++] = '\n';
-		
-	}
-		
-	}
-		
-	return (str);
-		
+	s[cmpt] = '\0';
+	return (s);
+}
+/**
+ * _strlen - to determine the length of a string code
+ *
+ * @s: the string code
+ *
+ * Return: the int size
+ */
+int _strlen(char *s)
+{
+	int size = 0;
+
+	for (; s[size] != '\0'; size++)
+		;
+	return (size);
 }
