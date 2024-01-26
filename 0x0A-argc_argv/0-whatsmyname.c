@@ -1,14 +1,18 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
+
 /**
- * main - change the name of the unction
- * @argc: the lendth of argument
- * @argv: the array of string
- * Return: 0
+ * main - Entry point
+ *
+ * @argc: number of arguments code
+ *
+ * @argv: values of arguments..
+ *
+ * Return: 0 On
  */
 int main(int argc, char *argv[])
 {
-	(void)argc;
 	printf("%s\n", argv[0]);
+
 	return (0);
 }
